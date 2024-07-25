@@ -4,6 +4,5 @@
 
 void doSomething()
 {
-    int a = 10;
-    std::cout << "Hello, World!" << a << std::endl;
+    std::cout << PROJECT_NAME << " " << PROJECT_VER << std::endl;
 }
