@@ -19,4 +19,7 @@ configure_file(
 
 add_executable(my_app ${SOURCE_FILES} ${HEADER_FILES})
 
-target_link_libraries(my_app PRIVATE module)
+target_link_directories(my_app PRIVATE build)
+target_include_directories(my_app PRIVATE build/include)
+
+target_link_libraries(my_app PRIVATE module my_library)
