@@ -1,8 +1,7 @@
-#include <iostream>
+#include "module/module.h"
 
 int main()
 {
-    int a = 10;
-    std::cout << "Hello, World!" << a << std::endl;
+    doSomething();
     return 0;
 }
