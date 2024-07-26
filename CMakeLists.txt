@@ -6,6 +6,8 @@ include(.cmake/ResolveClasses.cmake)
 
 add_compile_options(-Wall -Wextra -pedantic)
 
+find_package(my_library REQUIRED PATHS ${CMAKE_BINARY_DIR}/my_library)
+
 add_subdirectory(module)
 
 set(SOURCE_FILES
@@ -18,8 +20,5 @@ configure_file(
 )
 
 add_executable(my_app ${SOURCE_FILES} ${HEADER_FILES})
-
-target_link_directories(my_app PRIVATE build)
-target_include_directories(my_app PRIVATE build/include)
 
 target_link_libraries(my_app PRIVATE module my_library)
