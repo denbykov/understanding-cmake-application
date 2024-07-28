@@ -27,9 +27,13 @@ list(APPEND CMAKE_MODULE_PATH ${DEPENDENCIES_DIR}/cmake)
 list(APPEND CMAKE_PREFIX_PATH ${DEPENDENCIES_DIR})
 
 macro(provide_dependency method package_name)
-    download_and_install_library(
-        LIBRARY_NAME ${package_name}
-    )
+    if ("${package_name}" IN_LIST CUSTOM_LIBRARIES)
+        download_and_install_library(
+            LIBRARY_NAME ${package_name}
+        )
+    else()
+        find_package(${package_name} REQUIRED ${ARGN} BYPASS_PROVIDER)
+    endif()    
 endmacro()
 
 cmake_language(

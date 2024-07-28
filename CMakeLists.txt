@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.24)
 
 project(application VERSION "1.0.0" LANGUAGES CXX)
 
+enable_testing()
+
 set(UCL_REPOSITORY_TAG "v1.0.0")
 
 include(.cmake/All.cmake)
@@ -24,3 +26,18 @@ configure_file(
 add_executable(my_app ${SOURCE_FILES} ${HEADER_FILES})
 
 target_link_libraries(my_app PRIVATE module my_library)
+
+find_package(GTest REQUIRED)
+
+set(TEST_SOURCE_FILES
+    tests/my_test.cpp
+)
+
+add_executable(my_test ${TEST_SOURCE_FILES})
+
+add_test(
+    NAME my_test
+    COMMAND $<TARGET_FILE:my_test>
+)
+
+target_link_libraries(my_test PRIVATE GTest::GTest GTest::Main)

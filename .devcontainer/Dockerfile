@@ -12,6 +12,14 @@ RUN apt install -y sudo \
     clang \
     wget
 
+ARG GTEST_VER=1.15.0
+
+RUN wget https://github.com/google/googletest/releases/download/v${GTEST_VER}/googletest-${GTEST_VER}.tar.gz \
+    && tar -xvzf googletest-${GTEST_VER}.tar.gz \
+    && cd googletest-${GTEST_VER} \
+    && cmake -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=/usr/local . \
+    && cmake --build . --target install
+
 ARG USERNAME=ubuntu
 
 # ARG USERNAME=developer
