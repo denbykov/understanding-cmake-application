@@ -9,7 +9,8 @@ RUN apt install -y sudo \
     ninja-build \
     gdb \
     build-essential \
-    clang
+    clang \
+    wget
 
 ARG USERNAME=ubuntu
 

@@ -2,7 +2,9 @@ cmake_minimum_required(VERSION 3.24)
 
 project(application VERSION "1.0.0" LANGUAGES CXX)
 
-include(.cmake/ResolveClasses.cmake)
+set(UCL_REPOSITORY_TAG "v1.0.0")
+
+include(.cmake/All.cmake)
 
 add_compile_options(-Wall -Wextra -pedantic)
 

@@ -6,7 +6,8 @@
         "CMAKE_CXX_STANDARD": "20",
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "1",
-        "WORKING_DIRECTORY": "${workspaceFolder}"
+        "WORKING_DIRECTORY": "${workspaceFolder}",
+        "CMAKE_PROJECT_TOP_LEVEL_INCLUDES": ".cmake/MyProvider.cmake",
     },
     "files.insertFinalNewline": true,
     "files.associations": {
